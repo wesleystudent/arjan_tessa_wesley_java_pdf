@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -22,11 +24,9 @@ public class Main extends Application {
 
         ToolBar toolBar = new ToolBar();
 
-        Button button1 = new Button("Button 1");
-        toolBar.getItems().add(button1);
-
-        Button button2 = new Button("Button 2");
-        toolBar.getItems().add(button2);
+        MenuButton menuButton = new MenuButton("File");
+        menuButton.getItems().add(new MenuItem("Save"));
+        toolBar.getItems().add(menuButton);
 
         VBox vBox = new VBox(toolBar);
 
