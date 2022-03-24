@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
+
+import javax.swing.*;
 import java.util.Objects;
 
 public class Main extends Application {
@@ -14,11 +16,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("sample.fxml")));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Aantekeningen");
 
         ImageView brush = new ImageView("res/img/brush.png");
         brush.maxWidth(20);
         brush.maxHeight(20);
+
 
         VBox vBox = new VBox(root);
 
