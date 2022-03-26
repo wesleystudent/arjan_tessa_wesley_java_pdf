@@ -9,18 +9,18 @@
 
 <?import javafx.scene.canvas.Canvas?>
 <BorderPane stylesheets="@style.css" minHeight="720.0" minWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1"
-            xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="sample.Controller">
+            xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="sample.MenuController">
     <top>
         <AnchorPane styleClass="toolbar">
             <children>
-                <MenuBar styleClass="menu" BorderPane.alignment="CENTER">
+                <MenuBar fx:id="menuBar" styleClass="menu" BorderPane.alignment="CENTER">
                     <Menu text="File">
-                        <MenuItem text="New"/>
-                        <MenuItem text="Open"/>
-                        <MenuItem text="Save"/>
-                        <MenuItem text="Close"/>
+                        <MenuItem fx:id="new" text="New"/>
+                        <MenuItem fx:id="open" text="Open"/>
+                        <MenuItem fx:id="save" text="Save"/>
+                        <MenuItem fx:id="close" text="Close"/>
                         <SeparatorMenuItem/>
-                        <MenuItem text="Exit"/>
+                        <MenuItem fx:id="exit" text="Exit"/>
                     </Menu>
                 </MenuBar>
                 <Button styleClass="btn" layoutX="60.0" BorderPane.alignment="CENTER">
@@ -31,7 +31,9 @@
                             </image>
                         </ImageView>
                     </graphic>
-                    <tooltip><Tooltip text="Undo" /></tooltip>
+                    <tooltip>
+                        <Tooltip text="Undo"/>
+                    </tooltip>
                 </Button>
                 <Button styleClass="btn" layoutX="102.0" BorderPane.alignment="CENTER">
                     <graphic>
@@ -41,7 +43,9 @@
                             </image>
                         </ImageView>
                     </graphic>
-                    <tooltip><Tooltip text="Redo" /></tooltip>
+                    <tooltip>
+                        <Tooltip text="Redo"/>
+                    </tooltip>
                 </Button>
                 <Button styleClass="btn" layoutX="200.0" BorderPane.alignment="CENTER">
                     <graphic>
@@ -51,9 +55,11 @@
                             </image>
                         </ImageView>
                     </graphic>
-                    <tooltip><Tooltip text="Text" /></tooltip>
+                    <tooltip>
+                        <Tooltip text="Text"/>
+                    </tooltip>
                 </Button>
-                <Button styleClass="btn" layoutX="242.0" BorderPane.alignment="CENTER">
+                <Button styleClass="btn" fx:id="brush" layoutX="242.0" BorderPane.alignment="CENTER">
                     <graphic>
                         <ImageView fx:id="imageView" fitHeight="22.0" fitWidth="22.0">
                             <image>
@@ -61,24 +67,27 @@
                             </image>
                         </ImageView>
                     </graphic>
-                    <tooltip><Tooltip text="Brush" /></tooltip>
+                    <tooltip>
+                        <Tooltip text="Brush"/>
+                    </tooltip>
                 </Button>
                 <ColorPicker styleClass="colorPicker" layoutX="310.0">
-                    <tooltip><Tooltip text="Colors" /></tooltip>
+                    <tooltip>
+                        <Tooltip text="Colors"/>
+                    </tooltip>
                 </ColorPicker>
             </children>
         </AnchorPane>
     </top>
     <left>
-        <Pane maxWidth="150" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: red;"
+        <Pane maxWidth="150" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #333333;"
               BorderPane.alignment="CENTER"/>
     </left>
-    <center>
-        <Canvas id="canvas" height="600.0" width="800.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER"/>
-<!--        <Pane id="canvas" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER"/>-->
-    </center>
     <right>
-        <Pane maxWidth="150" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: red;"
+        <Pane maxWidth="150" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #333333;"
               BorderPane.alignment="CENTER"/>
     </right>
+    <center>
+        <Canvas id="canvas" styleClass="canvas" height="600.0" width="800.0" BorderPane.alignment="CENTER"/>
+    </center>
 </BorderPane>

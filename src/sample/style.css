@@ -1,14 +1,14 @@
 .btn {
     -fx-background-insets: 0 ;
-    -fx-background-color: whitesmoke;
+    -fx-background-color: transparent;
 }
 
 .btn:hover {
-    -fx-background-color: #DDDDDD;
+    -fx-background-color: #BBBBBB;
 }
 
 .toolbar {
-    -fx-background-color: whitesmoke;
+    -fx-background-color: #DDDDDD;
 }
 
 .menu {
@@ -22,11 +22,11 @@
 }
 
 .menu:hover {
-    -fx-background-color: #DDDDDD;
+    -fx-background-color: #BBBBBB;
 }
 
 .menu .label:hover{
-    -fx-text-fill: #111111;
+    -fx-text-fill: black;
 }
 
 .colorPicker {
@@ -35,5 +35,9 @@
 }
 
 .colorPicker:hover, .colorPicker:pressed {
-    -fx-background-color: #DDDDDD;
+    -fx-background-color: #BBBBBB;
+}
+
+.canvas {
+    -fx-background-color: white;
 }
