@@ -1,14 +1,39 @@
 .btn {
-    border-color: white;
-    -fx-background-color: transparent;
+    -fx-background-insets: 0 ;
+    -fx-background-color: whitesmoke;
+}
+
+.btn:hover {
+    -fx-background-color: #DDDDDD;
 }
 
 .toolbar {
-    -fx-background-color: darkgrey;
-    -fx-text-fill: white;
+    -fx-background-color: whitesmoke;
 }
 
 .menu {
     -fx-background-color: transparent;
-    -fx-text-fill: white;
+    -fx-min-width: 50.0;
+    -fx-padding: 3 5 3 5;
+}
+
+.menu .label{
+    -fx-text-fill: black;
+}
+
+.menu:hover {
+    -fx-background-color: #DDDDDD;
+}
+
+.menu .label:hover{
+    -fx-text-fill: #111111;
+}
+
+.colorPicker {
+    -fx-background-insets: 0;
+    -fx-background-color: transparent;
+}
+
+.colorPicker:hover, .colorPicker:pressed {
+    -fx-background-color: #DDDDDD;
 }

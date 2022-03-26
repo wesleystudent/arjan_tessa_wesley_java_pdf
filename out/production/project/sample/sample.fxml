@@ -7,7 +7,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
-<BorderPane stylesheets="@style.css"  minHeight="720.0" minWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1"
+<?import javafx.scene.canvas.Canvas?>
+<BorderPane stylesheets="@style.css" minHeight="720.0" minWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1"
             xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="sample.Controller">
     <top>
         <AnchorPane styleClass="toolbar">
@@ -22,7 +23,37 @@
                         <MenuItem text="Exit"/>
                     </Menu>
                 </MenuBar>
-                <Button styleClass="btn" layoutX="80.0" BorderPane.alignment="CENTER">
+                <Button styleClass="btn" layoutX="60.0" BorderPane.alignment="CENTER">
+                    <graphic>
+                        <ImageView fx:id="imageView" fitHeight="22.0" fitWidth="22.0" style="-fx-translate-y: 1">
+                            <image>
+                                <Image url="https://img.icons8.com/material-outlined/344/undo.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <tooltip><Tooltip text="Undo" /></tooltip>
+                </Button>
+                <Button styleClass="btn" layoutX="102.0" BorderPane.alignment="CENTER">
+                    <graphic>
+                        <ImageView fx:id="imageView" fitHeight="22.0" fitWidth="22.0" style="-fx-translate-y: 1">
+                            <image>
+                                <Image url="https://img.icons8.com/material-outlined/344/redo.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <tooltip><Tooltip text="Redo" /></tooltip>
+                </Button>
+                <Button styleClass="btn" layoutX="200.0" BorderPane.alignment="CENTER">
+                    <graphic>
+                        <ImageView fx:id="imageView" fitHeight="22.0" fitWidth="22.0" style="-fx-translate-y: 1">
+                            <image>
+                                <Image url="https://img.icons8.com/ios-glyphs/344/text.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <tooltip><Tooltip text="Text" /></tooltip>
+                </Button>
+                <Button styleClass="btn" layoutX="242.0" BorderPane.alignment="CENTER">
                     <graphic>
                         <ImageView fx:id="imageView" fitHeight="22.0" fitWidth="22.0">
                             <image>
@@ -30,7 +61,11 @@
                             </image>
                         </ImageView>
                     </graphic>
+                    <tooltip><Tooltip text="Brush" /></tooltip>
                 </Button>
+                <ColorPicker styleClass="colorPicker" layoutX="310.0">
+                    <tooltip><Tooltip text="Colors" /></tooltip>
+                </ColorPicker>
             </children>
         </AnchorPane>
     </top>
@@ -39,7 +74,8 @@
               BorderPane.alignment="CENTER"/>
     </left>
     <center>
-        <Pane id="canvas" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER"/>
+        <Canvas id="canvas" height="600.0" width="800.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER"/>
+<!--        <Pane id="canvas" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER"/>-->
     </center>
     <right>
         <Pane maxWidth="150" prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: red;"
