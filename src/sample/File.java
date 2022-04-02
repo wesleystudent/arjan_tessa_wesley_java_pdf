@@ -1,5 +1,5 @@
 package sample;
 
 public interface File {
-    void open(String extensionName, String extension);
+    java.io.File open(String extensionName, String extension);
 }

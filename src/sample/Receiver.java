@@ -4,21 +4,20 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
-import javafx.stage.FileChooser;
-import javafx.stage.Popup;
 import javafx.stage.Stage;
+
+import java.io.File;
 
 
 public class Receiver {
+    public File file = null;
 
     public void save(){
 
     }
 
-    public void open(){
+    public File open(){
         Stage popup = new Stage();
         popup.setTitle("Soort file");
         Button pdf = new Button("Open PDF");
@@ -42,23 +41,27 @@ public class Receiver {
         pdf.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                new PDF().open(new Facade("PDF").extensionName, new Facade("PDF").extension);
+               file = new PDF().open(new Facade("PDF").extensionName, new Facade("PDF").extension);
+               popup.hide();
             }
         });
 
         img.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                new Image().open(new Facade("Image").extensionName, new Facade("Image").extension);
+                file = new Image().open(new Facade("Image").extensionName, new Facade("Image").extension);
+                popup.hide();
             }
         });
 
         blanco.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                new Blanco().open(new Facade("Blanco").extensionName, new Facade("Blanco").extension);
+                file = new Blanco().open(new Facade("Blanco").extensionName, new Facade("Blanco").extension);
+                popup.hide();
             }
         });
+        return file;
     }
 
     public void close(){

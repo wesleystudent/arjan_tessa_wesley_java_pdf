@@ -1,11 +1,14 @@
 package sample;
 
+import java.io.File;
+
 public class OpenCommand implements Command{
-    private Receiver receiver = new Receiver();
+    private final Receiver receiver = new Receiver();
+    public File file = null;
 
     @Override
-    public void execute() {
+    public synchronized void execute() {
         System.out.println("Open Command");
-        receiver.open();
+        file = receiver.open();
     }
 }

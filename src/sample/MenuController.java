@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -35,11 +36,22 @@ public class MenuController implements Initializable {
     private Vector endPos;
     private ArrayList<Line> graphics;
     private GraphicsContext graphicsContext;
+    OpenCommand oC = new OpenCommand();
 
     public MenuController() {
         this.mouseDown = false;
         this.graphics = new ArrayList<Line>();
 
+    }
+
+    public Canvas refreshCanvas(){
+        if (oC.file != null) {
+            System.out.println(oC.file);
+        }
+        else {
+            System.out.println("No file yet.");
+        }
+        return getCanvas();
     }
 
     public Canvas getCanvas() {
@@ -53,9 +65,13 @@ public class MenuController implements Initializable {
     }
 
     @FXML
-    private void openAction(ActionEvent event) {
-        new OpenCommand().execute();
+    private synchronized void openAction(ActionEvent event) {
+       oC.execute();
+       // When finished refresh canvas.
+//        TODO: Hij refreshed meteen na de functie en wacht niet tot hij klaar is met het uitvoeren.
+        refreshCanvas();
     }
+
 
     @FXML
     private void saveAction(ActionEvent event) {
