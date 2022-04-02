@@ -25,11 +25,6 @@ public class Main extends Application {
 
         VBox vBox = new VBox(root);
 
-//
-//        FileChooser fileChooser = new FileChooser();
-//        fileChooser.showOpenDialog(primaryStage);
-
-
         Scene scene = new Scene(vBox, 1280, 720);
 
         primaryStage.setScene(scene);
