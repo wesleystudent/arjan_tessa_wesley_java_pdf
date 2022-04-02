@@ -5,9 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.MenuBar;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import sample.shapes.Line;
 import sample.utilities.Vector;
@@ -20,6 +18,12 @@ import java.util.ResourceBundle;
 public class MenuController implements Initializable
 {
     @FXML
+    private MenuItem save;
+    @FXML
+    private MenuItem open;
+    @FXML
+    private MenuItem close;
+    @FXML
     private MenuBar menuBar;
     @FXML
     private Button  brush;
@@ -28,16 +32,19 @@ public class MenuController implements Initializable
     @FXML
     private ColorPicker colorPicker;
 
-
     private boolean mouseDown;
     private Vector startPos;
     private Vector endPos;
     private ArrayList<Line> graphics;
     private GraphicsContext graphicsContext;
+    private ICommand saveCommand;
+    private ICommand openCommand;
 
     public MenuController() {
         this.mouseDown = false;
         this.graphics = new ArrayList<Line>();
+        this.saveCommand = new SaveCommand();
+        this.openCommand = new OpenCommand();
 
     }
 
@@ -110,8 +117,6 @@ public class MenuController implements Initializable
                 graphicsContext.lineTo(line.getEndPosition().getX(), line.getEndPosition().getY());
                 graphicsContext.stroke();
                 graphicsContext.closePath();
-
-
             }
         });
 
@@ -122,9 +127,18 @@ public class MenuController implements Initializable
                 Line line = new Line(startPos, endPos, colorPicker.getValue(), 3);
                 graphics.add(line);
                 System.out.println("mouseup");
-
             }
 
+        });
+
+        save.setOnAction(event -> {
+            System.out.println("Clicked save!");
+            saveCommand.execute();
+        });
+
+        open.setOnAction(event -> {
+            System.out.println("Clicked open!");
+            openCommand.execute();
         });
     }
 
