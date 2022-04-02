@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.MenuBar;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import sample.shapes.Line;
 import sample.utilities.Vector;
@@ -39,10 +40,6 @@ public class MenuController implements Initializable {
         this.mouseDown = false;
         this.graphics = new ArrayList<Line>();
 
-    }
-
-    public void refresh() {
-        System.out.println("Refreshing canvas");
     }
 
     public Canvas getCanvas() {
