@@ -16,12 +16,12 @@
             <children>
                 <MenuBar fx:id="menuBar" styleClass="menu" BorderPane.alignment="CENTER">
                     <Menu text="File">
-                        <MenuItem fx:id="new" text="New"/>
-                        <MenuItem fx:id="open" text="Open"/>
-                        <MenuItem fx:id="save" text="Save"/>
-                        <MenuItem fx:id="close" text="Close"/>
+                        <MenuItem fx:id="new" text="New" onAction="#newAction"/>
+                        <MenuItem fx:id="open" text="Open" onAction="#openAction"/>
+                        <MenuItem fx:id="save" text="Save" onAction="#saveAction"/>
+                        <MenuItem fx:id="close" text="Close" onAction="#closeAction"/>
                         <SeparatorMenuItem/>
-                        <MenuItem fx:id="exit" text="Exit"/>
+                        <MenuItem fx:id="exit" text="Exit" onAction="#exitAction"/>
                     </Menu>
                 </MenuBar>
                 <Button styleClass="btn" layoutX="60.0" BorderPane.alignment="CENTER">

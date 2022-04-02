@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,20 +10,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.MenuBar;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import sample.shapes.Line;
 import sample.utilities.Vector;
 
-import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class MenuController implements Initializable
-{
+public class MenuController implements Initializable {
     @FXML
     private MenuBar menuBar;
     @FXML
-    private Button  brush;
+    private Button brush;
     @FXML
     private Canvas canvas;
     @FXML
@@ -49,23 +49,31 @@ public class MenuController implements Initializable
         return this.canvas;
     }
 
-    /**
-     * Handle action related to "About" menu item.
-     *
-     * @param event Event on "About" menu item.
-     */
     @FXML
-    private void handleSaveAction(final ActionEvent event)
-    {
-        provideSaveFunctionality();
+    private void newAction(ActionEvent event) {
+        graphicsContext.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        graphics.clear();
     }
 
-    /**
-     * Perform functionality associated with "Save" menu selection or CTRL-A.
-     */
-    private void provideSaveFunctionality()
-    {
-        System.out.println("You clicked on Save!");
+    @FXML
+    private void openAction(ActionEvent event) {
+        new OpenCommand().execute();
+    }
+
+    @FXML
+    private void saveAction(ActionEvent event) {
+        new SaveCommand().execute();
+    }
+
+    @FXML
+    private void closeAction(ActionEvent event) {
+        new CloseCommand().execute();
+    }
+
+    @FXML
+    public void exitAction(ActionEvent event) {
+        Stage stage = (Stage) canvas.getScene().getWindow();
+        stage.close();
     }
 
     @Override
@@ -133,7 +141,6 @@ public class MenuController implements Initializable
         this.graphicsContext.clearRect(0, 0, this.canvas.getWidth(), this.canvas.getHeight());
         this.graphicsContext.closePath();
     }
-
 
 
 //    this.canvas.setOnMouseClicked(event -> {
