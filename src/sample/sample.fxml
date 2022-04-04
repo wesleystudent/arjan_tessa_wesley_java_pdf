@@ -92,6 +92,9 @@
               BorderPane.alignment="CENTER"/>
     </right>
     <center>
-        <Canvas fx:id="canvas" id="canvas" styleClass="canvas" height="600.0" width="800.0" BorderPane.alignment="CENTER"/>
+        <StackPane fx:id="backgroundCanvas" styleClass="backgroundCanvas">
+            <Canvas fx:id="canvas" id="canvas" styleClass="canvas" height="600.0" width="800.0"
+                    BorderPane.alignment="CENTER"/>
+        </StackPane>
     </center>
 </BorderPane>
